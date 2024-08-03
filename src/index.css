@@ -59,7 +59,7 @@ img {
 }
 
 .header__container {
-  max-width: 1392px;
+  max-width: 1352px;
   padding: 12px 46px;
   background-color: rgba(108, 185, 171, 0.7);
   backdrop-filter: blur(60px);
@@ -137,12 +137,10 @@ img {
 .product {
   display: flex;
   flex-direction: column;
-  max-height: 600px;
+  height: 100%;
+  min-height: 600px;
   color: #1d1c1d;
   background-color: #f2f9f7;
-}
-
-.product__img {
 }
 
 .product__content {
@@ -214,7 +212,117 @@ img {
   margin-bottom: 16px;
 }
 
-.footer__social{
+.footer__social {
   display: flex;
   gap: 12px;
+}
+
+@media (max-width: 1240px) {
+  .container {
+    padding: 0 42px;
+  }
+
+  .header {
+    top: 20px;
+    padding: 0 20px;
+  }
+
+  .header__container {
+    padding: 12px 22px;
+  }
+
+  .promo__container {
+    padding-top: 172px;
+    padding-bottom: 60px;
+    background-image: url(/image/banner-1024.png);
+    background-position: right 48px bottom 0px;
+  }
+
+  .promo__title {
+    max-width: 620px;
+    margin-bottom: 40px;
+    font-size: 70px;
+  }
+
+  .product {
+    min-height: 450px;
+  }
+
+  .footer__menu {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 940px) {
+  .header__logo {
+    width: 78px;
+  }
+
+  .header__menu {
+    gap: 24px;
+  }
+
+  .header__menu_link {
+    font-size: 16px;
+  }
+
+  .promo__container {
+    padding-top: 157px;
+    background-position: right bottom;
+    background-size: 203px;
+  }
+
+  .promo__title {
+    min-width: 460px;
+    font-size: 54px;
+  }
+
+  .promo__link {
+    padding: 12px 18px;
+    font-size: 16px;
+  }
+
+  .products {
+    padding: 80px 0;
+  }
+
+  .products__title {
+    font-size: 36px;
+    margin-bottom: 24px;
+  }
+  .products__list {
+    grid-template-columns: repeat(auto-fill, minmax(217px, 1fr));
+    gap: 16px;
+  }
+
+  .product {
+    min-height: 360px;
+  }
+
+  .product__title {
+    font-size: 20px;
+  }
+  .product__price {
+    font-size: 16px;
+  }
+
+  .footer {
+    padding: 40px 0;
+  }
+  .footer__info {
+    font-size: 12px;
+  }
+
+  .footer__menu {
+    gap: 24px;
+  }
+
+  .footer__menu-link {
+    font-size: 16px;
+  }
+
+  .footer__email {
+    font-size: 16px;
+    margin-bottom: 12px;
+  }
 }
