@@ -1,10 +1,12 @@
-import { createContext, useContext, useEffect, useState } from "react";
-import { API_URL } from "../const";
+import { createContext, useContext, useEffect, useState } from 'react';
+import { API_URL } from '../const';
 
 const ProductContext = createContext();
 
+export const useProducts = () => useContext(ProductContext)
+
 export const ProductProvider = ({ children }) => {
-  const [category, setCategory] = useState("")
+  const [category, setCategory] = useState('')
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -23,5 +25,3 @@ export const ProductProvider = ({ children }) => {
     </ProductContext.Provider>
   )
 };
-
-export const useProducts = () => useContext(ProductContext)
