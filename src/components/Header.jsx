@@ -1,9 +1,12 @@
 import { Link, useLocation } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
+import { useProducts } from '../context/ProductContext'
 
 export const Header = () => {
   const location = useLocation()
   const {cart} = useCart()
+  const {categories} = useProducts()
+
   const getActiveClass = (category) => {
     const currentCategory = new URLSearchParams(location.search).get('category')
     return category === currentCategory ? 'active' : ''
@@ -18,23 +21,14 @@ export const Header = () => {
 
         <nav className="header__nav">
           <ul className="header__menu">
-            <li className="header__menu-item">
-              <Link to="/products?category=tea" className={`header__menu-link ${getActiveClass('tea')}`}>Чай</Link>
-            </li>
-            <li className="header__menu-item">
-              <Link to="/products?category=coffee" className={`header__menu-link ${getActiveClass('coffee')}`}>Кофе</Link>
-            </li>
-            <li className="header__menu-item">
-              <Link to="/products?category=teapots" className={`header__menu-link ${getActiveClass('teapots')}`}>Чайники</Link>
-            </li>
-            <li className="header__menu-item">
-              <Link to="/products?category=cezves" className={`header__menu-link ${getActiveClass('cezves')}`}>Турки</Link>
-            </li>
-            <li className="header__menu-item">
-              <Link to="/products?category=other" className={`header__menu-link ${getActiveClass('other')}`}>Прочее</Link>
-            </li>
+            {Object.entries(categories).map(([category, title]) => (
+              <li className="header__menu-item" key={category}>
+                <Link to={`/products?category=${category}`} className={`header__menu-link ${getActiveClass(category)}`}>{title}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
+
         <Link to="/cart" className="header__cart-link">
           {cart ? cart.length : 0}
         </Link>

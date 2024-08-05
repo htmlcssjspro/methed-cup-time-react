@@ -1,4 +1,9 @@
+import { Link } from 'react-router-dom'
+import { useProducts } from '../context/ProductContext'
+
 export const Footer = () => {
+  const {categories} = useProducts()
+
   return(
     <footer id="footer" className="footer">
       <div className="container footer__container">
@@ -8,21 +13,11 @@ export const Footer = () => {
 
         <div className="footer__nav">
           <ul className="footer__menu">
-            <li className="footer__menu-item">
-              <a href="" className="footer__menu-link">Чай</a>
-            </li>
-            <li className="footer__menu-item">
-              <a href="" className="footer__menu-link">Кофе</a>
-            </li>
-            <li className="footer__menu-item">
-              <a href="" className="footer__menu-link">Чайники</a>
-            </li>
-            <li className="footer__menu-item">
-              <a href="" className="footer__menu-link">Турки</a>
-            </li>
-            <li className="footer__menu-item">
-              <a href="" className="footer__menu-link">Прочее</a>
-            </li>
+            {Object.entries(categories).map(([category, title]) => (
+              <li className="footer__menu-item" key={category}>
+                <Link to={`/products?category=${category}`} className="footer__menu-link">{title}</Link>
+              </li>
+            ))}
           </ul>
         </div>
 
@@ -31,11 +26,11 @@ export const Footer = () => {
           <p className="footer__description">Проект создан в учебных целях</p>
           <ul className="footer__developers">
             <li className="footer__developer">
-                        Designer:
+              <span>Designer: </span>
               <a href="" className="footer__developer-link">Anastasia Ilina</a>
             </li>
             <li className="footer__developer">
-                        Developer:
+              <span>Developer:</span>
               <a href="" className="footer__developer-link"></a>
             </li>
           </ul>

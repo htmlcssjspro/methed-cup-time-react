@@ -18,17 +18,7 @@ module.exports = {
       { allowConstantExport: true },
     ],
     'react/prop-types': 'off',
-    'indent': [
-      'warn',
-      2,
-      {
-          'SwitchCase': 1,
-          'flatTernaryExpressions': false,
-          'offsetTernaryExpressions': false,
-          'VariableDeclarator': 'first',
-          'ImportDeclaration': 'first'
-      }
-    ],
+    'indent': ['warn', 2],
     'quotes': ['warn', 'single'],
   },
 }

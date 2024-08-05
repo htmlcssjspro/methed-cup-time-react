@@ -6,19 +6,10 @@ import { SkeletonLoader } from './SkeletonLoader'
 
 
 export const Products = () => {
+  const { products, setCategory, categories } = useProducts()
   const [searchParams] = useSearchParams()
-  const { products, setCategory } = useProducts()
   const category = searchParams.get('category')
-
-  const titles = {
-    coffee: 'Кофе',
-    tea: 'Чай',
-    teapots: 'Чайники',
-    cezves: 'Турки',
-    other: 'Прочее',
-  }
-
-  const title = titles[category]
+  const title = categories[category]
 
   useEffect(() => {
     setCategory(category)
